@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="ISO-8859-1">
 <title>Registro | SoloCiencia.com</title>
@@ -12,7 +12,7 @@
         String nombre = request.getParameter("fname");
 		String apellido = request.getParameter("lname");
 		String edad = request.getParameter("birthdate");
-		String contraseña = request.getParameter("pass");	        
+		String contraseÃ±a = request.getParameter("pass");	        
     %>
     
     <%@page import="java.sql.*" %>
@@ -22,8 +22,8 @@
 	    String username = "root";
 	    String password = "";
 	    
-	    // Cadena, con las posiciones de los parámetros
-	    String sqlquery = "INSERT INTO registro (Nombre, Apellido, Edad, Contraseña) VALUES (?,?,?,?)";
+	    // Cadena, con las posiciones de los parÃ¡metros
+	    String sqlquery = "INSERT INTO registro (Nombre, Apellido, Edad, ContraseÃ±a) VALUES (?,?,?,?)";
 
     	try {
 	    	// Driver para conectarse a la base de Datos
@@ -35,17 +35,17 @@
 	    	// Consulta Predefinida
 	    	PreparedStatement consultaForm = dbconnect.prepareStatement(sqlquery);
 	    	
-	    	// Establecer los valores de los parámetros
+	    	// Establecer los valores de los parÃ¡metros
 	    	consultaForm.setString(1, nombre);
 	    	consultaForm.setString(2, apellido);
 	    	consultaForm.setString(3, edad);
-	    	consultaForm.setString(4, contraseña);
+	    	consultaForm.setString(4, contraseÃ±a);
  	
-	    	// Verificar si se actualizaron los datos (la llamada correcta es sin parámetro)
+	    	// Verificar si se actualizaron los datos (la llamada correcta es sin parÃ¡metro)
 	    	int actualizacion = consultaForm.executeUpdate();
 	    	
 	    	if (actualizacion > 0) {
-	    	    System.out.println("El registro se actualizó correctamente.");
+	    	    System.out.println("El registro se actualizÃ³ correctamente.");
 	    	    response.sendRedirect("index.html");
 	    	} else {
 	    	    System.out.println("No se pudo actualizar el registro.");
@@ -54,7 +54,7 @@
     	} catch (Exception e)
     	{
     		out.println("--ERROR--");
-    		out.println("--Consulta Inválida--");
+    		out.println("--Consulta InvÃ¡lida--");
     	
     	}
     	
