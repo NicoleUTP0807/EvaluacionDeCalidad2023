@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="ISO-8859-1">
-<title>Iniciar Sesión | SoloCiencia.com</title>
+<title>Iniciar SesiÃ³n | SoloCiencia.com</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <% // Crear las variables para la entrada del formulario (con id o name)
         String nombre = request.getParameter("fname");
-        String contraseña = request.getParameter("pass");	        
+        String contraseÃ±a = request.getParameter("pass");	        
     %>
     
     <%@page import="java.sql.*" %>
@@ -20,8 +20,8 @@
 	    String password = "";
 	    Boolean result;
 	    
-	    // Cadena, con las posiciones de los parámetros
-	    String sqlquery = "SELECT * FROM registro WHERE Nombre=? AND Contraseña=?";
+	    // Cadena, con las posiciones de los parÃ¡metros
+	    String sqlquery = "SELECT * FROM registro WHERE Nombre=? AND ContraseÃ±a=?";
 
     	try {
 	    	// Driver para conectarse a la base de Datos
@@ -33,11 +33,11 @@
 	    	// Consulta Predefinida
 	    	PreparedStatement consultaForm = dbconnect.prepareStatement(sqlquery);
 	    	
-	    	// Establecer los valores de los parámetros
+	    	// Establecer los valores de los parÃ¡metros
 	    	consultaForm.setString(1, nombre);
-	    	consultaForm.setString(2, contraseña);
+	    	consultaForm.setString(2, contraseÃ±a);
 	    	
-	    	// Verificar los datos para el inicio de sesión
+	    	// Verificar los datos para el inicio de sesiÃ³n
 	    	ResultSet resultado = consultaForm.executeQuery();
 	    	
 	    	if (resultado.next()) {
@@ -51,7 +51,7 @@
     	} catch (Exception e)
     	{
     		out.println("--ERROR--");
-    		out.println("--Consulta Inválida--");  	
+    		out.println("--Consulta InvÃ¡lida--");  	
     	}
     	
     %>
