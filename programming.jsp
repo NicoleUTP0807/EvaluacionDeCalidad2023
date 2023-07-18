@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="ISO-8859-1">
 <title>Registro | SoloCiencia.com</title>
@@ -22,8 +22,8 @@
 	    String username = "root";
 	    String password = "";
 	    
-	    // Cadena, con las posiciones de los parámetros
-	    String sqlquery = "INSERT INTO curso_programación (Nombre_Completo, Cédula, Curso, Fecha_de_Ingreso) VALUES (?,?,?,?)";
+	    // Cadena, con las posiciones de los parÃ¡metros
+	    String sqlquery = "INSERT INTO curso_programaciÃ³n (Nombre_Completo, CÃ©dula, Curso, Fecha_de_Ingreso) VALUES (?,?,?,?)";
 
     	try {
 	    	// Driver para conectarse a la base de Datos
@@ -35,17 +35,17 @@
 	    	// Consulta Predefinida
 	    	PreparedStatement consultaForm = dbconnect.prepareStatement(sqlquery);
 	    	
-	    	// Establecer los valores de los parámetros
+	    	// Establecer los valores de los parÃ¡metros
 	    	consultaForm.setString(1, nombre_completo);
 	    	consultaForm.setString(2, cedula);
 	    	consultaForm.setString(3, curso);
 	    	consultaForm.setString(4, fecha_de_ingreso);
  	
-	    	// Verificar si se actualizaron los datos (la llamada correcta es sin parámetro)
+	    	// Verificar si se actualizaron los datos (la llamada correcta es sin parÃ¡metro)
 	    	int actualizacion = consultaForm.executeUpdate();
 	    	
 	    	if (actualizacion > 0) {
-	    	    System.out.println("El registro se actualizó correctamente.");
+	    	    System.out.println("El registro se actualizÃ³ correctamente.");
 	    	    response.sendRedirect("home.html");
 	    	} else {
 	    	    System.out.println("No se pudo actualizar el registro.");
@@ -54,7 +54,7 @@
     	} catch (Exception e)
     	{
     		out.println("--ERROR--");
-    		out.println("--Consulta Inválida--");
+    		out.println("--Consulta InvÃ¡lida--");
     	
     	}
     	
